@@ -232,6 +232,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/17/Linux的正则表达式基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haoocker">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Haohao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/17/Linux的正则表达式基础/" itemprop="url">Linux的正则表达式基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-17T15:24:45+08:00">
+                2019-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><font size="4">在认识和学习bash的过程中，其中的通配符和让我印象深刻，当我了解到正则表达式时，它的功能同样让我感到惊讶，他们的相似之处有很多很多，因此经常会混淆他们的用法，但是这两者是完全不一样的东西！根据我的理解，通配符就像是bash中的特殊符号，可以直接被bash识别，最常用的用法是配合ls命令，进行查询操作的功能。而正则表达式则是一种字符串处理的表示方法，有很强大的字符串处理能力，可以信息进行加工和处理从而呈现出自己想要的信息。因为目前最经常用到的字符串选取工具程序是grep，所以就先用grep介绍最基本的正则表达式。</font>
+
+<h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h2><font size="4">先给出grep常用的语法参数：</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-c:&quot;查找字符串&quot;的次数</span><br><span class="line">-i: 忽略大小写的不同</span><br><span class="line">-n: 输出行号</span><br><span class="line">-v: 反向选择</span><br><span class="line">-A: (after)后面可加数字n，表示将后面的n行列出来</span><br><span class="line">-B: (before)前面可加数字n,表示将前面的n行列出来</span><br></pre></td></tr></table></figure><br><br>假设目标文件为text.txt<br><br><font size="4">1：查找特定字符串</font>
+
+<p><code>grep -in &#39;the&#39; text.txt</code> 查找文件中包含大小写the的字符串的所有行，并打印行号</p>
+<p><code>grep -vn &#39;the&#39; text.txt</code> 查找文件中不含the的字符串的所有行</p>
+<font size="4">2：利用中括号查找字符集合</font>
+
+<p><code>grep -n &#39;t[ae]st&#39; text.txt</code> 查找文件中包含tast或者test的字符串的所有行</p>
+<p><code>grep -nA3 &#39;[^g]00&#39; text.txt</code> 查找文件中包含oo字符串且前面没有字母g的的所有行，并且还输出符合条件行的后面三行。</p>
+<p><code>grep -n &#39;[^a-z]oo&#39; text.txt</code> 查找包含oo字符串，并且oo之前没有小写字母</p>
+<p><strong>注：小写字母还可以用[:lower:]表示，即</strong><code>[^a-z]等同于[^[:lower:]]</code><strong>不过初入门可以不用记忆太多，暂且先不列出这种特殊符号。</strong></p>
+<font size="4">3:任意一个字符”.”</font>
+
+<p><code>grep -n &#39;g..d&#39; text.txt</code> 选取含有g??d的字符串，即共有4个字符的所有行</p>
+<font size="4">4：重复字符”*”</font>
+
+<p><code>grep -n &#39;roo*t&#39; text.txt</code> 选取含有以r开头t结尾且中间必定含有一个o的字符串，’ro*t’<br>表示r和t中间可以含有零到无穷个o</p>
+<p><strong>注：如果想得到g开头和g结尾的字符串，我们经常会写成</strong><code>grep -n &#39;g*g&#39; text.txt</code><strong>而这个表示选取含有字母g的那一行，因为 g* 表示是空字符或者含有一个即以上的g。</strong><br><strong>要想得到符合要求的字符串要写成</strong><br><code>grep -n &#39;g.*&#39;g text.txt</code>                       <strong>因为”.”表示的是任意一个字符,所以 .* 表示零个或任意一个字符的意思。</strong></p>
+<font size="4">5：行首和行尾字符</font>
+
+<p><code>grep -n &#39;^the&#39; text.txt</code> 查找行首有the的所有行</p>
+<p><code>grep -n &#39;^[a-z]&#39; text.txt</code> 查找行首是小写字母的所有行</p>
+<p><code>grep -n &#39;^[^a-zA-Z]&#39; text.txt</code> 查找行首不是英文字母的所有行</p>
+<p>这里注意^在[]里面和外面的不同含义哦！</p>
+<p><strong>注：Linux里面的断行符是”$”,而windows中的断行符为”^M$”,所以行尾的标识符为$</strong></p>
+<p><code>grep -n &#39;\.$&#39; text.txt</code> 选取文本中以”.”（英文句号）结尾的所有行，这里的\是转义字符，”\.”表示解除”.”的特殊含义</p>
+<p><code>grep -n &#39;^$&#39; text.txt</code> 表示选取所有的空白行</p>
+<h2 id="综上所述，基础正则表达式字符："><a href="#综上所述，基础正则表达式字符：" class="headerlink" title="综上所述，基础正则表达式字符："></a>综上所述，基础正则表达式字符：</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">意义 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">^word</td>
+<td style="text-align:center">要查找的字符串在行首 </td>
+</tr>
+<tr>
+<td style="text-align:center">word$</td>
+<td style="text-align:center">要查找的字符串在行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">.(小数点)</td>
+<td style="text-align:center">代表一定有一个任意字符的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:center">转义字符</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">重复前一个字符零次或者无数次</td>
+</tr>
+<tr>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">从[]集合里面选出一个想要的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[n1-n2]</td>
+<td style="text-align:center">从n1到n2中选取一个想要的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[^]</td>
+<td style="text-align:center">从集合里面找出不要的字符串</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/16/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -395,7 +584,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -403,6 +592,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>

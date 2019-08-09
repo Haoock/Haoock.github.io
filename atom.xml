@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-08T12:07:54.326Z</updated>
+  <updated>2019-08-09T14:38:23.120Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_02:关于git和github</title>
+    <link href="http://www.simbleman.com/2019/08/09/Blog-02-%E5%85%B3%E4%BA%8Egit%E5%92%8Cgithub/"/>
+    <id>http://www.simbleman.com/2019/08/09/Blog-02-关于git和github/</id>
+    <published>2019-08-09T14:33:47.000Z</published>
+    <updated>2019-08-09T14:38:23.120Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>工欲善其事必先利其器</code><br>github被戏称为是世界上最大的同性社交平台，这肯定是有它自己独特的魅力。我也很早就被他的这种魅力所吸引，但是终究只是沉醉于它那富丽堂皇的表面，而迟迟没有去欣赏它真实的内涵。</p><h3 id="git和github"><a href="#git和github" class="headerlink" title="git和github"></a>git和github</h3><p>&emsp;&emsp;<a href="https://github.com/" target="_blank" rel="noopener">github</a>简单来说是一个代码托管平台，你可以将自己的项目代码放到这个平台中去，这是一个公开的平台，所有人将可以看见你的项目的代码，除非你买了私人的github账号和仓库。在我的理解中这就是程序员们交流的一个平台，全世界所有的程序员在这个平台中是平等的，说全世界是因为这大概是为数不多的没有被中国所墙掉的网站，你可以在这个平台上可以展示自己的项目的代码，也可以免费看到那些优秀程序员的项目的源代码，还可以在项目中提出issue和作者交流。<br>&emsp;&emsp;而git算是github网站的核心技术，git是什么，在廖雪峰的官方网站上他写到：“Git是目前世界上最先进的分布式版本控制系统（没有之一）。” 可以说这是对git很高很高的评价了。一开始了解git可能我们都并不是很了解为什么要这么说，但当你了解到一定程度之后你会发现，“嗯…好像真的有点厉害”。好了废话这么多就正式进入正题！</p><h3 id="git工作的三个区域"><a href="#git工作的三个区域" class="headerlink" title="git工作的三个区域"></a>git工作的三个区域</h3><p>学习git首先要了解的就是git做为版本控制系统的三个最基本的区域。这也是git很多命令理解的前提和关键</p><ol><li>git仓库<br>我个人的理解就是最终代码和文件的存放的区域，一般是你把所有暂时不需要修改的代码和文件放在这个区域。相当于一个产品暂时最终的样子，说是暂时的因为你还可以再次修改，修改完成之后还可以覆盖掉原来的产品。</li><li>工作目录<br>可以理解成你完成代码的编写和文件的修改等等的区域，相当于一个产品的车间，你在这里完成一切产品的加工和创造</li><li>暂存区域<br>顾名思义。这里的文件和代码是在工作目录完成之后暂存的，准备提交到git仓库的区域。相当于一个产品的中转站，在车间完成之后从这里转存到最终的目的地。</li></ol><h3 id="git的常用命令"><a href="#git的常用命令" class="headerlink" title="git的常用命令"></a>git的常用命令</h3><p>我们一般用git bash来完成git的所有工作。因此命令的掌握是非常重要的。</p><ol><li>git clone https://… projectname可以从github中克隆一个仓库</li><li>git status 查看git的三个区域中的文件的状态。</li><li>git status -s 简化版本：例：<br>M README<br>MM Rakefile<br>A lib/git.rb<br>M lib/simplegit.rb<br>?? LICENSE.txt<br>新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。M 有两个可以出现的位置，出现在右边的 M 表示该文件被修改了但是还没放入暂存区，出现在靠左<br>边的 M 表示该文件被修改了并放入了暂存区。Rakefile 在工作区被修改并提交到暂存区后又在工作区中被修改了，所以在暂存区和工作区都有该文件被修改了的记录。</li><li>git add相当于文件已经被跟踪并储存到暂存区</li><li>git diff 用来查看尚未暂存的文件更新了哪些部分<br>git diff –cached或者git diff –staged查看已经暂存起来的变化</li><li>git commit将暂存区域中的文件提交到git仓库中<br>可以使用git commit -m ‘将本次的提交信息可以写在这里’<br>git commit -a可以跳过git add（已跟踪文件）</li><li>git rm   连带从工作目录中删除指定的文件，这样以后就不会出现在未跟踪文件清 单中了。<br>git rm -f强制删除文件，针对还没有commit的文件</li><li>git mv filename1 filename2可以给文件改名字</li><li>git log 有很多的参数选择</li><li>撤销：有时候提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。 此时，可以运行<br>$ git commit –amend<br>“git reset HEAD filename撤销将一个文件放入暂存区（移出暂存区）<br>git checkout – filename撤消对文件的修改</li><li>git remote，如果是克隆的会显示origin<br>git remote -v 会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。</li></ol><h3 id="关于分支branch"><a href="#关于分支branch" class="headerlink" title="关于分支branch"></a>关于分支branch</h3><p>&emsp;&emsp;首先要区别git fetch 和git pull的区别，这两个的区别显得很重要，要必须注意 git fetch 命令会将数据拉取到你的本地仓库 - 它并不会自动合并或修改你当前的工作。而运行 git pull 通常会从最初克隆的服务器上抓取数据并自动尝试合并到当前所在的分支，一般当前的分支就是master。简单理解：git pull=git fetch+git merge.<br>&emsp;&emsp;关于分支的设计可以说是git显得很强大的一个重要原因，因为篇幅和时间的原因，我准备下次再来好好谈谈。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;code&gt;工欲善其事必先利其器&lt;/code&gt;&lt;br&gt;github被戏称为是世界上最大的同性社交平台，这肯定是有它自己独特的魅力。我也很早就被他的这种魅力所吸引，但是终究只是沉醉于它那富丽堂皇的表面，而迟迟没有去欣赏它真实的内涵。&lt;/p&gt;
+&lt;h3 id=&quot;git和githu
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_01:关于Markdown语法</title>
@@ -47,7 +73,7 @@
     <link href="http://www.simbleman.com/2019/08/07/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%8D%A2%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E8%AF%B4%E6%98%8E/"/>
     <id>http://www.simbleman.com/2019/08/07/主题更换以及一些说明/</id>
     <published>2019-08-07T11:42:55.000Z</published>
-    <updated>2019-08-07T14:01:28.047Z</updated>
+    <updated>2019-08-09T14:36:37.804Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一：主题更换"><a href="#一：主题更换" class="headerlink" title="一：主题更换"></a>一：主题更换</h2><h3 id="1：前情概要"><a href="#1：前情概要" class="headerlink" title="1：前情概要"></a>1：前情概要</h3><p>  &emsp;&emsp;距离我上一次更新已经过去很久了，从上一次更新到现在发生了很多事情，曾一度想关闭这个博客想重新开一个自己的网站，但是想到目前自己真的没有很大的需求去开一个网站，想开网站无非是折腾自己，有点大材小用的意思，所以我还是回到了这个blog。 <br><br>  &emsp;&emsp;4月份和5月份大概是我自己瞎忙的时候，我也不知道自己在忙什么，所以从那个时候开始就想着有时间来整一整，然后才发现真的不要相信自己对自己说的谎话，以后可能是无限期。就这样从六月份开始我应该在忙着准备期末考试了，（嗯..期末就不想提了，太心痛！）那一备考阶段感觉是我上半年最迷茫的时候…所以就这样到7月中旬期末考试结束后我就回家了。接着就是半个月去福建福州和厦门的旅行，可以说是一次身心的放松吧。（虽然被晒得黑了两度！）可以看到页面最上面的背景照片就是我这次在厦门的一个沙滩所拍摄的！在这次更新中我觉得好看就放了上去，接下来谈谈这次的主题更新！</p><h3 id="2-主题更换"><a href="#2-主题更换" class="headerlink" title="2:主题更换"></a>2:主题更换</h3><p> &emsp;&emsp;之前的主题一直用的是next主题，虽然网上的教程很多，但是无论什么样式看来看去真的很丑，所以最近几天就下决心换了一个主题，目前的样式就是所更换之后的主题，是一个中国程序员所编写的BlueLake主题，整个过程他在自己的github主题中写的很详细了，配置也不算太麻烦，感觉比之前的next主题好配置，（也可能我是更熟悉应用了）。所以整个过程没有之前费脑。目前我加上去的最好的功能感觉就是gittalk评论了，但是需要你登录自己的github账号，然后才能评论。我大部分配置的时间是花在了自定义blog的风格上面，这个主题和手机的适配真的也很好，这里就不具体讲这个blog的构造了，可以随处逛逛来自己理解！</p><h3 id="3：日后再要加上的功能"><a href="#3：日后再要加上的功能" class="headerlink" title="3：日后再要加上的功能"></a>3：日后再要加上的功能</h3><p> &emsp;&emsp;目前计划加上的功能有:<br><br> 1:微信支付宝的打赏功能<br><br> 2:被百度搜索引擎收录,并能查询到我的blog(目前已经被谷歌收录)</p><h2 id="二：一些说明"><a href="#二：一些说明" class="headerlink" title="二：一些说明"></a>二：一些说明</h2><h3 id="1：博客给谁看？"><a href="#1：博客给谁看？" class="headerlink" title="1：博客给谁看？"></a>1：博客给谁看？</h3><p>&emsp;&emsp;在我写完这篇blog之前，我几乎没有公开过，甚至于我的舍友看了我的github才知道我写blog。原因首先是因为我的文章数目不够，当别人进来看的时候会不明白我的博客是用来做什么的，其次，我觉得我也没做好准备，目前了解和掌握的“技能点”很少，怕坚持不了第二点说明就自己投降了，<strong>没错重点是第二点说明：</strong></p><h3 id="2：每天写blog！"><a href="#2：每天写blog！" class="headerlink" title="2：每天写blog！"></a>2：每天写blog！</h3><p>&emsp;&emsp;嗯，从今天开始，也就是中国的情人节七夕，以后每天写一篇blog，一直到我写得不想写为止！我将受到所有人的共同监督！<br><br>&emsp;&emsp;<strong>今天的blog算是一个继往开来的第零篇，摆脱过去，重新开始！</strong></p>]]></content>
     
@@ -63,7 +89,7 @@
       <category term="其它" scheme="http://www.simbleman.com/categories/%E5%85%B6%E5%AE%83/"/>
     
     
-      <category term="BLOG" scheme="http://www.simbleman.com/tags/BLOG/"/>
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
     
   </entry>
   

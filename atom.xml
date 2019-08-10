@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-09T14:38:23.120Z</updated>
+  <updated>2019-08-10T13:48:59.934Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_03:补充git的剩余部分</title>
+    <link href="http://www.simbleman.com/2019/08/10/Blog-03-%E8%A1%A5%E5%85%85git%E7%9A%84%E5%89%A9%E4%BD%99%E9%83%A8%E5%88%86/"/>
+    <id>http://www.simbleman.com/2019/08/10/Blog-03-补充git的剩余部分/</id>
+    <published>2019-08-10T13:48:10.000Z</published>
+    <updated>2019-08-10T13:48:59.934Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是台风登陆大陆的一天，也是一个周末，所以今天的内容不会太多，就是补充昨天git的剩余关于分支(branch)的部分。</p><h3 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h3><p>在这里需要了解一下git是如何保存数据的：git保存的不是文件的变化或者差异，而是一系列不同时刻的文件快照。在进行提交操作的时候，，Git会保存一个提交对象。git的分支，本质上就是指向提交对象的可变指针。</p><h4 id="分支创建"><a href="#分支创建" class="headerlink" title="分支创建"></a>分支创建</h4><pre><code>git branch testing 只会创建一个testing分支。</code></pre><p>注意：git的默认分支名字是master，当使用git init命令的时候自动创建，同时git有一个名为HEAD的特殊指针，他是一个指向当前所在的本地分支，默认是master，所以要切换指针的的话要用到下面的命令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout testing切换到分支testing，这样HEAD会指向testing</span><br><span class="line">git checkout -b testing 会创建一个分支testing并自动切换到分支上去</span><br><span class="line">git log --oneline --decorate --graph --all 它会输出你的提交历史、各个分支的指向以及项目的分支分叉情况。</span><br></pre></td></tr></table></figure><h4 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h4><p>如果当你已经完成了testing分支的工作，想要把testing分支合并到主分支中去（也就是master）可以运行git merge<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master切换到master分支</span><br><span class="line">git merge testing 将testing分支合并到master</span><br></pre></td></tr></table></figure></p><p>注意：如果在两个分支中对同一个文件的同一个部分进行了不同的修改，则会产生冲突，这时候当你merge的时，git会暂停下来等待你去解决合并产生的冲突。</p><h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><pre><code>git branch -v可以查看每个分支的最后一次提交git branch -d可以删除掉当前分支（需要注意这是你已经合并之后的不需要的分支）</code></pre><h3 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h3><pre><code>git ls-remote (remote) 来 显式地获得远程引用的完整列表</code></pre><p>首先你需要知道当你clone一个仓库之后，你的本地会产生一个master分支，而服务器上的master分支在本地会变成origin/master，但你看见这个就代表是服务器上的master了。 git fetch origin会拉取服务器上的master的所有数据，更新本地的数据库。当你git fetch之后本地的master分支依旧是没有变化的，还需要加上git merge来手动合并服务器上的数据。但是当你使用了git pull便可以拉取数据并自动合并到当前所指的分支。这也是昨天所说的：git pull=git fetch+git merge.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天是台风登陆大陆的一天，也是一个周末，所以今天的内容不会太多，就是补充昨天git的剩余关于分支(branch)的部分。&lt;/p&gt;
+&lt;h3 id=&quot;git分支&quot;&gt;&lt;a href=&quot;#git分支&quot; class=&quot;headerlink&quot; title=&quot;git分支&quot;&gt;&lt;/a&gt;git
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_02:关于git和github</title>

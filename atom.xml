@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-11T14:23:46.262Z</updated>
+  <updated>2019-08-12T14:58:02.072Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog-05-关于flutter框架的了解</title>
+    <link href="http://www.simbleman.com/2019/08/12/Blog-05-%E5%85%B3%E4%BA%8Eflutter%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BA%86%E8%A7%A3/"/>
+    <id>http://www.simbleman.com/2019/08/12/Blog-05-关于flutter框架的了解/</id>
+    <published>2019-08-12T14:54:46.000Z</published>
+    <updated>2019-08-12T14:58:02.072Z</updated>
+    
+    <content type="html"><![CDATA[<p>经过大概半天的思考，最终决定还是先从dart开始了解，再去了解futter这个谷歌的新型跨平台框架。这样看起来android都已经要过时了呢。</p><h3 id="flutter：一个跨平台的框架"><a href="#flutter：一个跨平台的框架" class="headerlink" title="flutter：一个跨平台的框架"></a>flutter：一个跨平台的框架</h3><p>相信很多人都有听说过flutter，几乎从去年的谷歌io大会之后flutter就很火。各种说法蜂拥而至，这让flutter受到了前所未有的关注。据官网介绍，国内的闲鱼平台二手商品的的详细界面就是使用flutter写成的，一套代码，就完成了在android和ios系统上运行的要求。因为他优秀的跨平台性和他流畅的运行结果，而且学习和使用这个框架也不是很难，所以我也被吸引到了解和学习他的过程中。</p><h3 id="dart语言"><a href="#dart语言" class="headerlink" title="dart语言"></a>dart语言</h3><p>flutter使用dart语言，所以了解flutter，先学会dart是很有必要的。dart的很多语法和java很像，因为今天时间的原因，没有将dart详细了解，只是粗略的看了一下，同时今天也将dart的运行环境搭建完成，因为国内网络的原因，所以在一开始的下载过程中遇到了很大的影响，但是一旦下载好sdk，就能容易进行环境的搭建啦，今天就先这样草草结束，从明天开始将正式讲解dart的语法和使用！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;经过大概半天的思考，最终决定还是先从dart开始了解，再去了解futter这个谷歌的新型跨平台框架。这样看起来android都已经要过时了呢。&lt;/p&gt;
+&lt;h3 id=&quot;flutter：一个跨平台的框架&quot;&gt;&lt;a href=&quot;#flutter：一个跨平台的框架&quot; class=&quot;
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_04:杂谈</title>

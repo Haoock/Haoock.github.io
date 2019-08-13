@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-12T14:59:11.583Z</updated>
+  <updated>2019-08-13T13:40:09.374Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Blog_06_Dart基础</title>
+    <link href="http://www.simbleman.com/2019/08/13/Blog-06-Dart%E5%9F%BA%E7%A1%80/"/>
+    <id>http://www.simbleman.com/2019/08/13/Blog-06-Dart基础/</id>
+    <published>2019-08-13T13:39:02.000Z</published>
+    <updated>2019-08-13T13:40:09.374Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天主要是了解了dart相关的一些最基本的知识，并尝试在vscode和android studio中搭建了flutter环境，在vs code中进行flutter环境的搭配是要用到第三方的插件，但由于flutter还并没有像android那样火爆，因此并没有一个专门为他设计的ide，在android studio中也可以搭建flutter环境，也是像在vs code中需要借助第三方插件来进行开发。</p><h3 id="dart语言基础"><a href="#dart语言基础" class="headerlink" title="dart语言基础"></a>dart语言基础</h3><p>在<a href="https://dart.dev" target="_blank" rel="noopener">dart官网</a>,可以获得到所有关于dart环境安装的必需下载。也会有关于安装步骤的说明，当然你也可以去网上搜索教程来学习。</p><p>####dart一些常见和特殊的语法用法</p><ol><li>main函数<br>dart中函数的定义一般都是(){}的形式，main函数也不例外。一种定义的方法:main(){}还有一种定义的方法是:void main(){}</li><li><p>字符串的拼接<br>字符串的拼接可以像c语言或者java中用”+”完成，还有一种方式是使用$特殊符号完成（类似于引用）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string1=&quot;Hello,&quot;;</span><br><span class="line">var string2=&quot;world!&quot;;</span><br><span class="line">print(string1+string2);</span><br><span class="line">print(&quot;$string1 $string2&quot;);//加双引号</span><br></pre></td></tr></table></figure></li><li><p>函数<br>dart中函数的定义和C++，java中的大同小异。不过还是有特殊的定义。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">定义一个可选参数的函数：</span><br><span class="line">String printUserInfo(String username,[int age,String sex=&apos;男&apos;])&#123;//可选参数用中括号，默认参数可以在可选参数中设置</span><br><span class="line">if(age!=null)</span><br><span class="line">  return &quot;姓名: $username===年龄:$age&quot;;</span><br><span class="line">else</span><br><span class="line">  return &quot;姓名: $username===年龄:保密&quot;;</span><br><span class="line">&#125;</span><br><span class="line">print(printUserInfo(&quot;张三&quot;));</span><br><span class="line">//在这里函数的调用过程中，省去了age和sex，因为这是在函数的形参中被定义成了可选参数，sex还是一个默认参数。</span><br></pre></td></tr></table></figure></li></ol><p>4.变量<br>因为dart的强语言特性，所以dart可以不预先定义变量类型，用var,例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var name=&quot;您好dart&quot;;</span><br><span class="line">var num=123;</span><br><span class="line">//也可以通过明示来定义变量</span><br><span class="line">String str=&quot;hello world&quot;;</span><br><span class="line">print(str);</span><br><span class="line">//变量的名称是区分大小写的</span><br></pre></td></tr></table></figure></p><p>####dart中关于List和map相关</p><ol><li><p>定义<br>list和map都有两种定义的方法，一种是直接定义法，如List：<code>var list=[123,12334,321321];</code>第二种是<code>var list=new List();list.add(123);</code><br>map：<code>第一种定义的方式：<br>var person={<br> “name”:”张三”,<br> “phone”:1234 ,<br> “work”:{<br>   “work1”:”常州”,<br>   “work2”:”南京”<br> }<br>};<br>第二种定义的方式：<br>var p=new Map();<br>p[“name”]=”李四”;<br>p[“age”]=22;</code></p><ol start="2"><li>增加和删除数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">增加数据：</span><br><span class="line">list:</span><br><span class="line">  list.add(&quot;桃子&quot;);//增加一个数据</span><br><span class="line">  list.addAll([&quot;栗子&quot;,&quot;杏子&quot;]);//传入的是一个数组,相当于是拼接数组</span><br><span class="line"></span><br><span class="line">  map:只有一种增加数据的方法</span><br><span class="line">  person.addAll(&#123;</span><br><span class="line">  &quot;work&quot;:[&apos;码农&apos;,&apos;教师&apos;]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  删除数据：</span><br><span class="line">  list:</span><br><span class="line">list.remove(&apos;苹果&apos;); //根据名称删除</span><br><span class="line">print(list);</span><br><span class="line">list.removeAt(1);//根据下标删除</span><br><span class="line">print(list);</span><br></pre></td></tr></table></figure></li><li><p>遍历list和map的方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1:用for循环:类似于C++和java中那样的循环</span><br><span class="line">2:用item</span><br><span class="line">for( var item in list)&#123;</span><br><span class="line">   print( item);</span><br><span class="line">&#125;</span><br><span class="line">3：用foreach</span><br><span class="line">list.forEach((value)&#123;</span><br><span class="line">  print(&quot;$value&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li><li><p>set相关</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set用它最主要的功能就是去除数组重复的内容</span><br><span class="line">var newset=new Set();</span><br><span class="line">newset.add(&apos;苹果&apos;);</span><br><span class="line">newset.add(&apos;香蕉&apos;);</span><br><span class="line">newset.add(&apos;苹果&apos;);</span><br><span class="line">print(newset);</span><br><span class="line">只会打印出两个数值，因为有&quot;苹果&quot;重复了</span><br><span class="line">print(newset.toList());</span><br><span class="line">将set可以轻易转换成list</span><br></pre></td></tr></table></figure></li></ol><p>####dart语言特性</p><ol><li>强类型语言，变量的类型指定不一定要标明，因为Dart可以推断出它的类型。</li><li>在dart语言中，所有对象的类都是一个类的实例，甚至是整数，函数，null也看作对象<br>暂且所了解的比较深刻的就是这两点，所以暂且先列出这两点</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天主要是了解了dart相关的一些最基本的知识，并尝试在vscode和android studio中搭建了flutter环境，在vs code中进行flutter环境的搭配是要用到第三方的插件，但由于flutter还并没有像android那样火爆，因此并没有一个专门为他设计
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Blog_05:关于flutter框架的了解</title>
     <link href="http://www.simbleman.com/2019/08/12/Blog-05-%E5%85%B3%E4%BA%8Eflutter%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BA%86%E8%A7%A3/"/>
     <id>http://www.simbleman.com/2019/08/12/Blog-05-关于flutter框架的了解/</id>
     <published>2019-08-12T14:54:46.000Z</published>
-    <updated>2019-08-12T14:59:11.583Z</updated>
+    <updated>2019-08-13T13:40:07.376Z</updated>
     
     <content type="html"><![CDATA[<p>经过大概半天的思考，最终决定还是先从dart开始了解，再去了解futter这个谷歌的新型跨平台框架。这样看起来android都已经要过时了呢。</p><h3 id="flutter：一个跨平台的框架"><a href="#flutter：一个跨平台的框架" class="headerlink" title="flutter：一个跨平台的框架"></a>flutter：一个跨平台的框架</h3><p>相信很多人都有听说过flutter，几乎从去年的谷歌io大会之后flutter就很火。各种说法蜂拥而至，这让flutter受到了前所未有的关注。据官网介绍，国内的闲鱼平台二手商品的的详细界面就是使用flutter写成的，一套代码，就完成了在android和ios系统上运行的要求。因为他优秀的跨平台性和他流畅的运行结果，而且学习和使用这个框架也不是很难，所以我也被吸引到了解和学习他的过程中。</p><h3 id="dart语言"><a href="#dart语言" class="headerlink" title="dart语言"></a>dart语言</h3><p>flutter使用dart语言，所以了解flutter，先学会dart是很有必要的。dart的很多语法和java很像，因为今天时间的原因，没有将dart详细了解，只是粗略的看了一下，同时今天也将dart的运行环境搭建完成，因为国内网络的原因，所以在一开始的下载过程中遇到了很大的影响，但是一旦下载好sdk，就能容易进行环境的搭建啦，今天就先这样草草结束，从明天开始将正式讲解dart的语法和使用！</p>]]></content>
     
@@ -36,6 +63,8 @@
     </summary>
     
       <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
     
     
       <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>

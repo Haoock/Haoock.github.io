@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-13T13:40:09.374Z</updated>
+  <updated>2019-08-14T15:10:56.427Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_07_关于内容的杂谈</title>
+    <link href="http://www.simbleman.com/2019/08/14/Blog-07-%E5%85%B3%E4%BA%8E%E5%86%85%E5%AE%B9%E7%9A%84%E6%9D%82%E8%B0%88/"/>
+    <id>http://www.simbleman.com/2019/08/14/Blog-07-关于内容的杂谈/</id>
+    <published>2019-08-14T15:09:25.000Z</published>
+    <updated>2019-08-14T15:10:56.427Z</updated>
+    
+    <content type="html"><![CDATA[<p>其实了解下来感觉dart就是各种语言的大杂烩，你可以看见java的影子，你也可以看见JavaScript的影子，你甚至可以看见swift的影子，难怪说flutter是跨平台的呢，从这个语言的特征就能看出来了。</p><p>###我想说的<br>因为最近的Blog大部分都是这种知识类型的介绍，这是我学习成果的展示，也是我学习的过程。但由于在学习的过程中，我已经完成了大部分代码的编写，所以当我在写Blog的时候，设计代码的部分我会选择直接将我写好的代码拿过来复制粘贴，虽然能节省我写Blog的很多时间，可是这完全就是一种无意义的行为，因此从今天开始，我只会将我总结性的内容呈现出来，而不再是过程性的知识。</p><p>###所以今天不再是dart相关的基础内容<br>我思考了一下，决定今天的内容不再和dart相关，这个内容可能需要我接下来思考一下以什么样的方式呈现出来，所以今天纯粹是一种杂谈，本来打算是关于dart的剩下内容关于函数和类，我却发现其实这样的方式是有一定的问题的，因此今天暂停这样的内容呈现方式！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;其实了解下来感觉dart就是各种语言的大杂烩，你可以看见java的影子，你也可以看见JavaScript的影子，你甚至可以看见swift的影子，难怪说flutter是跨平台的呢，从这个语言的特征就能看出来了。&lt;/p&gt;
+&lt;p&gt;###我想说的&lt;br&gt;因为最近的Blog大部分都是
+      
+    
+    </summary>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+      <category term="杂谈" scheme="http://www.simbleman.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_06_Dart基础</title>

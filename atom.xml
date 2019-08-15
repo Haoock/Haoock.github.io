@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-14T15:10:56.427Z</updated>
+  <updated>2019-08-15T14:57:17.392Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_08_dart重写小程序</title>
+    <link href="http://www.simbleman.com/2019/08/15/Blog-08-dart%E9%87%8D%E5%86%99%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://www.simbleman.com/2019/08/15/Blog-08-dart重写小程序/</id>
+    <published>2019-08-15T14:55:32.000Z</published>
+    <updated>2019-08-15T14:57:17.392Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;今天的文章是关于我用dart语言重写我之前的一个代码的例子，以后我也会尽量从这样的例子中来说明一个语法或者一个问题！<br>&emsp;&emsp;不得不说dart与C++比起来好像并没有那么复杂，语法比较简单明了！</p><p>####简单例子1<br>首先来看在C++中的源代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">    int i,j;</span><br><span class="line">        for(i=0;i&lt;nums.size();i++)&#123;</span><br><span class="line">        for(j=i+1;j&lt;nums.size();j++)&#123;</span><br><span class="line">        if(nums[i]+nums[j]==target)&#123;</span><br><span class="line">        return &#123;i,j&#125;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"> return &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>下面是我用dart重写之后的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution&#123;</span><br><span class="line"> List&lt;int&gt; twoSum(List&lt;int&gt; nums,int target)&#123;</span><br><span class="line">   //在dart中返回类型也可以不写，且方法没有加_一律都是公有方法</span><br><span class="line">    for(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">      for(int j=i+1;j&lt;nums.length;j++)&#123;</span><br><span class="line">        if(nums[i]+nums[j]==target)</span><br><span class="line">          return [i,j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return [];//返回一个空的List</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>####简单例子2<br>这同样是C++的代码，是上面代码的改进版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution2 &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        map&lt;int,int&gt; a;//建立hash表存放数组元素</span><br><span class="line">        vector&lt;int&gt; b(2,-1);//存放结果</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">            a.insert(map&lt;int,int&gt;::value_type(nums[i],i));</span><br><span class="line">        for(int i=0;i&lt;nums.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(a.count(target-nums[i])&gt;0&amp;&amp;(a[target-nums[i]]!=i))</span><br><span class="line">            //a.count(键值)返回0或1，代表是否存在键值</span><br><span class="line">            &#123;</span><br><span class="line">                b[0]=i;</span><br><span class="line">                b[1]=a[target-nums[i]];</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return b;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>同样，可以用dart来改写一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution2&#123;</span><br><span class="line">  twoSum(List&lt;int&gt; nums,int target)&#123;</span><br><span class="line">    Map a=new Map();</span><br><span class="line">    //这里不可以用在C++中定义Map的方法：Map&lt;int&gt;&lt;int&gt; map;</span><br><span class="line">    //因为在dart中一切都是对象，所以这样的定义方法会简单很多</span><br><span class="line">    //甚至可以不加new关键词 Map a=Map();</span><br><span class="line">    List list=new List&lt;int&gt;();</span><br><span class="line">    for(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">      a.addAll(&#123;nums[i]:i&#125;);</span><br><span class="line">      //向Map中添加数据，一般用addAll函数，注意写法</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">      if(a.containsKey(target-nums[i])&amp;&amp;a[target-nums[i]]!=i)&#123;</span><br><span class="line">        list.add(i);</span><br><span class="line">        list.add(a[target-nums[i]]);</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return list;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p><p>不得不说，在Dart中没有C++中那么复杂的Map定义和使用，不过也只有当很熟练掌握之后dart之后才能发挥更大的功效。</p><p>####关于flutter<br>这两天我在自己的电脑上完成了flutter环境的搭建以及分别在vscode中和android studio中搭建了flutter的环境。flutter的正式介绍应该是从明天开始！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&amp;emsp;&amp;emsp;今天的文章是关于我用dart语言重写我之前的一个代码的例子，以后我也会尽量从这样的例子中来说明一个语法或者一个问题！&lt;br&gt;&amp;emsp;&amp;emsp;不得不说dart与C++比起来好像并没有那么复杂，语法比较简单明了！&lt;/p&gt;
+&lt;p&gt;####简单例子1
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_07_关于内容的杂谈</title>

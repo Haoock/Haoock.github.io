@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-15T14:57:17.392Z</updated>
+  <updated>2019-08-16T13:46:47.437Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_09_使用Flutter的第一个页面</title>
+    <link href="http://www.simbleman.com/2019/08/16/Blog-09-%E4%BD%BF%E7%94%A8Flutter%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://www.simbleman.com/2019/08/16/Blog-09-使用Flutter的第一个页面/</id>
+    <published>2019-08-16T13:08:22.000Z</published>
+    <updated>2019-08-16T13:46:47.437Z</updated>
+    
+    <content type="html"><![CDATA[<p>终于开始将flutter的布局开始了解和学习了，经过这一天和它的接触，发现它真的比Android要好用一点，没有像Android那么多复杂的配置和不知道怎么写Java代码的困扰。flutter中的dart还是挺容易去了解和学习的。</p><h4 id="初次开发"><a href="#初次开发" class="headerlink" title="初次开发"></a>初次开发</h4><div align="center"><br>  <img width="300" src="/images/flutter.jpg"><br></div><p>Flutter的开发相对android开发目前印象良好，因为它简便地多，可以不再用那个很难搞懂的android studio开发了，不过唯一使用下来感觉是前端界面如果比较复杂，真的代码就看不懂了，因为flutter的界面设计并没有像android那样可以在android studio中进行可视化设计，所以界面都是靠代码堆叠起来的，因此一旦界面复杂，那么代码的可读性真的很糟糕。<br>今天并不打算介绍我的全部代码，因为它的可读性问题，可能我在后面有时间的时候会再来修改一下。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;终于开始将flutter的布局开始了解和学习了，经过这一天和它的接触，发现它真的比Android要好用一点，没有像Android那么多复杂的配置和不知道怎么写Java代码的困扰。flutter中的dart还是挺容易去了解和学习的。&lt;/p&gt;
+&lt;h4 id=&quot;初次开发&quot;&gt;&lt;a 
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_08_dart重写小程序</title>

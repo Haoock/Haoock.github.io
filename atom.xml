@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-17T14:57:15.091Z</updated>
+  <updated>2019-08-18T14:10:37.994Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_11_杂谈（可以忽略）</title>
+    <link href="http://www.simbleman.com/2019/08/18/Blog-11-%E6%9D%82%E8%B0%88%EF%BC%88%E5%8F%AF%E4%BB%A5%E5%BF%BD%E7%95%A5%EF%BC%89/"/>
+    <id>http://www.simbleman.com/2019/08/18/Blog-11-杂谈（可以忽略）/</id>
+    <published>2019-08-18T14:10:09.000Z</published>
+    <updated>2019-08-18T14:10:37.994Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是星期日，今天不谈Flutter，但我不知道今天的内容应该是什么。<br>嗯…还是谈谈接下来的Flutter的更新的内容吧，可能最近有点焦急了，因为各方面原因，Flutter的进展很缓慢，虽然总体来讲，并没有android那样让我很困扰，但是这样的进展速度总是很让人焦虑..嗯..可能不需要我太多废话，今天就是抱怨一下最近的自己，明天开始继续Flutter！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天是星期日，今天不谈Flutter，但我不知道今天的内容应该是什么。&lt;br&gt;嗯…还是谈谈接下来的Flutter的更新的内容吧，可能最近有点焦急了，因为各方面原因，Flutter的进展很缓慢，虽然总体来讲，并没有android那样让我很困扰，但是这样的进展速度总是很让人焦虑
+      
+    
+    </summary>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+      <category term="杂谈" scheme="http://www.simbleman.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_10_FlutterImage的一小部分</title>

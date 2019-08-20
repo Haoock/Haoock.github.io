@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-18T14:10:37.994Z</updated>
+  <updated>2019-08-20T15:08:20.735Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_13_Flutter的GridView</title>
+    <link href="http://www.simbleman.com/2019/08/20/Blog-13-Flutter%E7%9A%84GridView/"/>
+    <id>http://www.simbleman.com/2019/08/20/Blog-13-Flutter的GridView/</id>
+    <published>2019-08-20T15:07:53.000Z</published>
+    <updated>2019-08-20T15:08:20.735Z</updated>
+    
+    <content type="html"><![CDATA[<p>Flutter中的GridView给人的感觉还是挺不一样的，有一种很方便控制的感觉（相比于Android）不说了直接上代码吧！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Widget&gt; _getListData() &#123;</span><br><span class="line">    List&lt;Widget&gt; list = new List();</span><br><span class="line"></span><br><span class="line">    for (var i = 0; i &lt; 20; i++) &#123;</span><br><span class="line">      list.add(Container(</span><br><span class="line">        child: Text(</span><br><span class="line">          &quot;这是第$i个数据&quot;,</span><br><span class="line">          style: TextStyle(color: Colors.blue, fontSize: 20),</span><br><span class="line">        ),</span><br><span class="line">        alignment: Alignment.center,</span><br><span class="line">        color: Colors.red,</span><br><span class="line">        //直接在Container里面定义高度和宽度是没有意义的，没有反应，要用到childAspectRatio(宽度比高度)</span><br><span class="line">        //height: 400.0,</span><br><span class="line">      ));</span><br><span class="line">    &#125;</span><br><span class="line">    return list;</span><br><span class="line">  &#125;</span><br><span class="line">GridView.count(</span><br><span class="line">      children: _getListData(),</span><br><span class="line">      crossAxisCount: 2,</span><br><span class="line">      crossAxisSpacing: 20.0,//网格之间左右的间距</span><br><span class="line">      mainAxisSpacing: 20.0,//网格之间上下的间距</span><br><span class="line">      padding: EdgeInsets.all(10.0),//这是网格整体上下的外边框</span><br><span class="line">      childAspectRatio: 0.7,//宽度和高度的比值</span><br><span class="line"></span><br><span class="line">    );</span><br></pre></td></tr></table></figure></p><p>注：GridView有两种实现方法：<br>1:GridView.count();<br>2:GridView.builder();<br>上面的代码就是一种实现方法，下面的一种方法今天暂且先不展示了。</p><p>因为今天的时间关系，没有来得及将GridView部分全部看完，所以明天可能会继续GridView，因为今天忙着去做了一些不得不做的事，所以就耽误了很长的时间，那明天继续吧！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Flutter中的GridView给人的感觉还是挺不一样的，有一种很方便控制的感觉（相比于Android）不说了直接上代码吧！&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;sp
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_11_杂谈（可以忽略）</title>

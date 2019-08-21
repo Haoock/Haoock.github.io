@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-20T15:08:20.735Z</updated>
+  <updated>2019-08-21T15:16:56.503Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_14_FlutterGridView的剩余</title>
+    <link href="http://www.simbleman.com/2019/08/21/Blog-14-FlutterGridView%E7%9A%84%E5%89%A9%E4%BD%99/"/>
+    <id>http://www.simbleman.com/2019/08/21/Blog-14-FlutterGridView的剩余/</id>
+    <published>2019-08-21T14:36:46.000Z</published>
+    <updated>2019-08-21T15:16:56.503Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天的内容是关于GridView的另一种实现的方式：GridView.Builder，这种实现方式很像之前的ListView.Builder,ListView.Builder会自动循环整个list的所有数据，所以需要index（下标）和length（list的长度），这样就可以来循环整个ListView进行数据的装配了。</p><h3 id="GridView-Builder"><a href="#GridView-Builder" class="headerlink" title="GridView.Builder()"></a>GridView.Builder()</h3><p>有几个常用且重要的属性:</p><ol><li>itemCount:这是循环数据的长度</li><li>itemBuilder:这是数据的来源,其参数是context和index，可以单独抽离出去形成一个函数来装配</li><li>gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(这是配置GridView水平或垂直表格之间的间距)<h3 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line">    // TODO: implement build</span><br><span class="line"></span><br><span class="line">    return Container(</span><br><span class="line">      child: GridView.builder(</span><br><span class="line">        itemCount: listData.length,</span><br><span class="line">        itemBuilder: this._getListData,</span><br><span class="line">        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(</span><br><span class="line">            crossAxisCount: 2,</span><br><span class="line">            crossAxisSpacing: 10.0,//水平Widget之间的间距</span><br><span class="line">            mainAxisSpacing: 10.0),//垂直Widget之间的间距</span><br><span class="line">      ),</span><br><span class="line">      padding: EdgeInsets.all(10.0),//通过Container来增加边框</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">Widget _getListData(context, index) &#123;</span><br><span class="line">    return Container(</span><br><span class="line">      alignment: Alignment.center,</span><br><span class="line">      decoration: BoxDecoration(</span><br><span class="line">        border: Border.all(</span><br><span class="line">            color: Color.fromRGBO(233, 233, 233, 0.9),</span><br><span class="line">            width: 2.0), //注意这里不是Colors</span><br><span class="line">        //在Decoration里面的border属性里面添加border</span><br><span class="line">      ),</span><br><span class="line">      child: Column(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Image.network(listData[index][&quot;imageUrl&quot;]),</span><br><span class="line">          SizedBox(height: 10.0), //这里用Container也可以，但SizedBox更合适</span><br><span class="line">          Text(</span><br><span class="line">            listData[index][&quot;title&quot;],</span><br><span class="line">            style: TextStyle(fontSize: 20.0),</span><br><span class="line">          )</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li></ol><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>GridView大概就这么多用法，今天其实还进行了Padding的学习，但是目前，我尽量将自己的博文时间减少这样会导致内容减少，但是我需要用更多的时间来加快我的进度，所以最近可能文章的长度大概就会这么多。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天的内容是关于GridView的另一种实现的方式：GridView.Builder，这种实现方式很像之前的ListView.Builder,ListView.Builder会自动循环整个list的所有数据，所以需要index（下标）和length（list的长度），这样就
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_13_Flutter的GridView</title>
@@ -531,31 +558,6 @@
       <category term="Linux" scheme="http://www.simbleman.com/tags/Linux/"/>
     
       <category term="正则表达式" scheme="http://www.simbleman.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.simbleman.com/2019/02/16/hello-world/"/>
-    <id>http://www.simbleman.com/2019/02/16/hello-world/</id>
-    <published>2019-02-15T16:22:17.208Z</published>
-    <updated>2019-08-07T10:47:22.891Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="欢迎来到我的个人临时博客"><a href="#欢迎来到我的个人临时博客" class="headerlink" title="欢迎来到我的个人临时博客"></a>欢迎来到我的个人临时博客</h2><h3 id="想着总要做点什么"><a href="#想着总要做点什么" class="headerlink" title="想着总要做点什么"></a>想着总要做点什么</h3><font size="4"><br>大一也像模像样的在阿里云上搞了一个传统的网站博客<br><br>不过那只是出于好奇和尝试 那时什么也不懂什么也不会<br><br>最后费时费力还费钱就没有继续搞下去了<br><br>到了大二就想着总要做点什么<br><br>于是就开始了重建之路<br><br>为了节约和方便 现在的博客是基于托管服务的<br><br>所以外观和界面都很简陋<br><br>我也在不断地完善之中<br><br>暂时就着当做是临时博客吧<br><br></font><h3 id="成长还来得及"><a href="#成长还来得及" class="headerlink" title="成长还来得及"></a>成长还来得及</h3><font size="4"><br>还记得大一上刚学<font color="#FF7F50 "><code>C++</code></font>的时候<br><br>从最一开始很吃力地写<font color="#FF7F50 "><code>Hello World</code> </font>到后来期末跟同学写小项目<br> 跨越的过程还是花了很多时间和精力的<br><br>不过也感觉到了自己的成长<br><br>可能这将是一个漫长的过程<br><br>所以希望能用博客记录我的成长和收获<br><br>我也会将自己的心得和感想随时分享…<br></font><h3 id="欢迎指正"><a href="#欢迎指正" class="headerlink" title="欢迎指正"></a>欢迎指正</h3><font size="4"><br>如果对网站或任何问题有什么意见或建议<br><br>欢迎给我留言和指正<br><br>目前的评论系统正在构建…请耐心等待…<br><br><br><br></font>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;欢迎来到我的个人临时博客&quot;&gt;&lt;a href=&quot;#欢迎来到我的个人临时博客&quot; class=&quot;headerlink&quot; title=&quot;欢迎来到我的个人临时博客&quot;&gt;&lt;/a&gt;欢迎来到我的个人临时博客&lt;/h2&gt;&lt;h3 id=&quot;想着总要做点什么&quot;&gt;&lt;a href=&quot;#想着总要做
-      
-    
-    </summary>
-    
-      <category term="其它" scheme="http://www.simbleman.com/categories/%E5%85%B6%E5%AE%83/"/>
-    
-    
-      <category term="Hello World" scheme="http://www.simbleman.com/tags/Hello-World/"/>
     
   </entry>
   

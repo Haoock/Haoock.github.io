@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-21T15:16:56.503Z</updated>
+  <updated>2019-08-22T13:37:47.713Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_15_关于Row，Column和AspectRatio组件</title>
+    <link href="http://www.simbleman.com/2019/08/22/Blog-15-%E5%85%B3%E4%BA%8ERow%EF%BC%8CColumn%E5%92%8CAspectRatio%E7%BB%84%E4%BB%B6/"/>
+    <id>http://www.simbleman.com/2019/08/22/Blog-15-关于Row，Column和AspectRatio组件/</id>
+    <published>2019-08-22T13:37:27.000Z</published>
+    <updated>2019-08-22T13:37:47.713Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天的内容是关于Row,Column,AspectRatio组件,大部分应该是以例子的形式展现。因为我今天写了太多的例子了</p><h3 id="Row和Column"><a href="#Row和Column" class="headerlink" title="Row和Column"></a>Row和Column</h3><p>常用的方法：</p><ol><li>mainAxisAlignment:主轴的对齐方式</li><li>crossAxisAlignment:垂直于主轴的对齐方式</li><li>Children<widget>[]这是放置子组件的属性<br>例子：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line">    // TODO: implement build</span><br><span class="line"></span><br><span class="line">    return Container(child: Row(//column的使用方法和Row一模一样，不过是方向相反罢了</span><br><span class="line">      mainAxisAlignment: MainAxisAlignment.spaceEvenly,//水平轴的分配其主轴为水平轴</span><br><span class="line">      crossAxisAlignment: CrossAxisAlignment.end,</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">      IconContainer(Icons.home,color: Colors.red),</span><br><span class="line">      IconContainer(Icons.search,color: Colors.blue),</span><br><span class="line">      IconContainer(Icons.select_all,color: Colors.yellow,)</span><br><span class="line">    ],),</span><br><span class="line">    width: 700.0,</span><br><span class="line">    height: 700.0,);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  class IconContainer extends StatelessWidget &#123;</span><br><span class="line">       double size=32.0;//默认值</span><br><span class="line">    Color color=Colors.red;//这是默认值</span><br><span class="line">    IconData icon;//必传值</span><br><span class="line">    IconContainer(IconData icon,&#123;double size,Color color&#125;)&#123;</span><br><span class="line">      this.size=size;</span><br><span class="line">      this.icon=icon;</span><br><span class="line">      this.color=color;</span><br><span class="line">    &#125;</span><br><span class="line">    @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Container(</span><br><span class="line">      height: 100.0,</span><br><span class="line">      width: 100.0,</span><br><span class="line">      color: this.color,</span><br><span class="line">      child: Center(</span><br><span class="line">        child: Icon(</span><br><span class="line">          this.icon,//传入的数据</span><br><span class="line">          size: this.size,//这是需要传入的数据</span><br><span class="line">          color: Colors.white,//这也是需要传入的数据</span><br><span class="line">        ),</span><br><span class="line">      ), </span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">注意：上面的方法是通过一个类来封装了Widget的生成，必须传入Icon值，其他的值都是可选的，这很好的利用了类的特性来完成了这个功能。</span><br></pre></td></tr></table></figure></widget></li></ol><p>###AspectRatio组件<br>可以通过AspectRatio组件来设置宽度与高度的比例<br>经常可以用来制作横着平铺的图片或者组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget build(BuildContext context) &#123;</span><br><span class="line">   // TODO: implement build</span><br><span class="line"></span><br><span class="line">   return AspectRatio(</span><br><span class="line">     aspectRatio: 3.0 / 1.0, //这个属性是宽度比上高度，什么也不设置的话宽度会自动填充，高度是宽度的三分之一</span><br><span class="line">     child: Container(color: Colors.red),</span><br><span class="line">   );</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p><p>小结：虽然这样的组件很多，也有很多组件的功能类似，但是如果能很好合适地利用，能减少很多的代码量，实现更好的适配效果</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天的内容是关于Row,Column,AspectRatio组件,大部分应该是以例子的形式展现。因为我今天写了太多的例子了&lt;/p&gt;
+&lt;h3 id=&quot;Row和Column&quot;&gt;&lt;a href=&quot;#Row和Column&quot; class=&quot;headerlink&quot; title=&quot;Row
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_14_FlutterGridView的剩余</title>
@@ -529,35 +557,6 @@
     
       <category term="其它" scheme="http://www.simbleman.com/categories/%E5%85%B6%E5%AE%83/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Linux的正则表达式基础</title>
-    <link href="http://www.simbleman.com/2019/02/17/Linux%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/"/>
-    <id>http://www.simbleman.com/2019/02/17/Linux的正则表达式基础/</id>
-    <published>2019-02-17T07:24:45.000Z</published>
-    <updated>2019-08-07T11:27:43.366Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><font size="4">在认识和学习bash的过程中，其中的通配符和让我印象深刻，当我了解到正则表达式时，它的功能同样让我感到惊讶，他们的相似之处有很多很多，因此经常会混淆他们的用法，但是这两者是完全不一样的东西！根据我的理解，通配符就像是bash中的特殊符号，可以直接被bash识别，最常用的用法是配合ls命令，进行查询操作的功能。而正则表达式则是一种字符串处理的表示方法，有很强大的字符串处理能力，可以信息进行加工和处理从而呈现出自己想要的信息。因为目前最经常用到的字符串选取工具程序是grep，所以就先用grep介绍最基本的正则表达式。</font><h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h2><font size="4">先给出grep常用的语法参数：</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-c:&quot;查找字符串&quot;的次数</span><br><span class="line">-i: 忽略大小写的不同</span><br><span class="line">-n: 输出行号</span><br><span class="line">-v: 反向选择</span><br><span class="line">-A: (after)后面可加数字n，表示将后面的n行列出来</span><br><span class="line">-B: (before)前面可加数字n,表示将前面的n行列出来</span><br></pre></td></tr></table></figure><br><br>假设目标文件为text.txt<br><br><font size="4">1：查找特定字符串</font><p><code>grep -in &#39;the&#39; text.txt</code> 查找文件中包含大小写the的字符串的所有行，并打印行号</p><p><code>grep -vn &#39;the&#39; text.txt</code> 查找文件中不含the的字符串的所有行</p><font size="4">2：利用中括号查找字符集合</font><p><code>grep -n &#39;t[ae]st&#39; text.txt</code> 查找文件中包含tast或者test的字符串的所有行</p><p><code>grep -nA3 &#39;[^g]00&#39; text.txt</code> 查找文件中包含oo字符串且前面没有字母g的的所有行，并且还输出符合条件行的后面三行。</p><p><code>grep -n &#39;[^a-z]oo&#39; text.txt</code> 查找包含oo字符串，并且oo之前没有小写字母</p><p><strong>注：小写字母还可以用[:lower:]表示，即</strong><code>[^a-z]等同于[^[:lower:]]</code><strong>不过初入门可以不用记忆太多，暂且先不列出这种特殊符号。</strong></p><font size="4">3:任意一个字符”.”</font><p><code>grep -n &#39;g..d&#39; text.txt</code> 选取含有g??d的字符串，即共有4个字符的所有行</p><font size="4">4：重复字符”*”</font><p><code>grep -n &#39;roo*t&#39; text.txt</code> 选取含有以r开头t结尾且中间必定含有一个o的字符串，’ro*t’<br>表示r和t中间可以含有零到无穷个o</p><p><strong>注：如果想得到g开头和g结尾的字符串，我们经常会写成</strong><code>grep -n &#39;g*g&#39; text.txt</code><strong>而这个表示选取含有字母g的那一行，因为 g* 表示是空字符或者含有一个即以上的g。</strong><br><strong>要想得到符合要求的字符串要写成</strong><br><code>grep -n &#39;g.*&#39;g text.txt</code>                       <strong>因为”.”表示的是任意一个字符,所以 .* 表示零个或任意一个字符的意思。</strong></p><font size="4">5：行首和行尾字符</font><p><code>grep -n &#39;^the&#39; text.txt</code> 查找行首有the的所有行</p><p><code>grep -n &#39;^[a-z]&#39; text.txt</code> 查找行首是小写字母的所有行</p><p><code>grep -n &#39;^[^a-zA-Z]&#39; text.txt</code> 查找行首不是英文字母的所有行</p><p>这里注意^在[]里面和外面的不同含义哦！</p><p><strong>注：Linux里面的断行符是”$”,而windows中的断行符为”^M$”,所以行尾的标识符为$</strong></p><p><code>grep -n &#39;\.$&#39; text.txt</code> 选取文本中以”.”（英文句号）结尾的所有行，这里的\是转义字符，”\.”表示解除”.”的特殊含义</p><p><code>grep -n &#39;^$&#39; text.txt</code> 表示选取所有的空白行</p><h2 id="综上所述，基础正则表达式字符："><a href="#综上所述，基础正则表达式字符：" class="headerlink" title="综上所述，基础正则表达式字符："></a>综上所述，基础正则表达式字符：</h2><table><thead><tr><th style="text-align:center">字符</th><th style="text-align:center">意义 </th></tr></thead><tbody><tr><td style="text-align:center">^word</td><td style="text-align:center">要查找的字符串在行首 </td></tr><tr><td style="text-align:center">word$</td><td style="text-align:center">要查找的字符串在行尾</td></tr><tr><td style="text-align:center">.(小数点)</td><td style="text-align:center">代表一定有一个任意字符的字符</td></tr><tr><td style="text-align:center">\</td><td style="text-align:center">转义字符</td></tr><tr><td style="text-align:center">*</td><td style="text-align:center">重复前一个字符零次或者无数次</td></tr><tr><td style="text-align:center">[]</td><td style="text-align:center">从[]集合里面选出一个想要的字符</td></tr><tr><td style="text-align:center">[n1-n2]</td><td style="text-align:center">从n1到n2中选取一个想要的字符</td></tr><tr><td style="text-align:center">[^]</td><td style="text-align:center">从集合里面找出不要的字符串</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言:&quot;&gt;&lt;/a&gt;前言:&lt;/h2&gt;&lt;font size=&quot;4&quot;&gt;在认识和学习bash的过程中，其中的通配符和让我印象深刻，当我了解到正则表达式时，它的功能同样让我感到惊讶，他们
-      
-    
-    </summary>
-    
-      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="Linux" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://www.simbleman.com/tags/Linux/"/>
-    
-      <category term="正则表达式" scheme="http://www.simbleman.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   

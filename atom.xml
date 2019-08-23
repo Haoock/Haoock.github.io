@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-22T13:37:47.713Z</updated>
+  <updated>2019-08-23T14:00:24.647Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Bolg_16_flutter的按钮和更改页面数据</title>
+    <link href="http://www.simbleman.com/2019/08/23/Bolg-16-flutter%E7%9A%84%E6%8C%89%E9%92%AE%E5%92%8C%E6%9B%B4%E6%94%B9%E9%A1%B5%E9%9D%A2%E6%95%B0%E6%8D%AE/"/>
+    <id>http://www.simbleman.com/2019/08/23/Bolg-16-flutter的按钮和更改页面数据/</id>
+    <published>2019-08-23T13:59:49.000Z</published>
+    <updated>2019-08-23T14:00:24.647Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天的内容是关于按钮和Flutter里面StateFulWidget的使用的，像Android里面的数据操作部分的逻辑是和页面分开写的，但是Flutter却不同，数据的操作和页面部分都是在同一个文件中来完成的。</p><h3 id="RaisedButton"><a href="#RaisedButton" class="headerlink" title="RaisedButton"></a>RaisedButton</h3><p>主要属性是两个：</p><ol><li>child:这里一般放置Button按钮里面的文字</li><li>Onpress(){}这是必须要重写的属性，主要是来设置按钮监听的动作<br>以上两个是RaisedButton经常使用的属性和方法，可能在以后会仔细来谈谈这个组件的其他的详细用法，今日主要大致了解便可<h3 id="StatefulWidget"><a href="#StatefulWidget" class="headerlink" title="StatefulWidget"></a>StatefulWidget</h3>今天之前所写的所有的小程序都是继承自StatelessWidget，这主要是用来存放一般的不可动的组件的，只要是不涉及数据或者是页面是静态的时候使用。<br>主要方法：<br>setState((){});这一般是在RaisedButton里面写，但需要更改数据的时候使用<h3 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class HomePage extends StatefulWidget &#123;</span><br><span class="line">  HomePage(&#123;Key key&#125;) : super(key: key);</span><br><span class="line"></span><br><span class="line">  _HomePageState createState() =&gt; _HomePageState(); //箭头函数这里可以表示调用的意思</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class _HomePageState extends State&lt;HomePage&gt; &#123;</span><br><span class="line">  int countNum = 0;</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Column(</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        SizedBox(height: 100,),</span><br><span class="line">        Chip(</span><br><span class="line">          label: Text(&apos;$&#123;this.countNum&#125;&apos;), //注意这里的数据绑定写法</span><br><span class="line">        ),</span><br><span class="line">        RaisedButton(</span><br><span class="line">          child: Text(&quot;按钮&quot;),</span><br><span class="line">          onPressed: () &#123;</span><br><span class="line">            setState(() &#123;</span><br><span class="line">              this.countNum++;</span><br><span class="line">            &#125;);</span><br><span class="line">          &#125;,</span><br><span class="line">        )</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">注意数据的绑定一般是用“$&quot;符号，$&#123;数据&#125;。</span><br></pre></td></tr></table></figure></li></ol><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>到现在为止，应该是能够写出稍微复杂一点是页面了，希望在接下来的几天能写出一个小程序！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天的内容是关于按钮和Flutter里面StateFulWidget的使用的，像Android里面的数据操作部分的逻辑是和页面分开写的，但是Flutter却不同，数据的操作和页面部分都是在同一个文件中来完成的。&lt;/p&gt;
+&lt;h3 id=&quot;RaisedButton&quot;&gt;&lt;a hr
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_15_关于Row，Column和AspectRatio组件</title>
@@ -534,29 +562,6 @@
       <category term="数据结构" scheme="http://www.simbleman.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线性表" scheme="http://www.simbleman.com/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>好久没更新了</title>
-    <link href="http://www.simbleman.com/2019/03/12/%E5%A5%BD%E4%B9%85%E6%B2%A1%E6%9B%B4%E6%96%B0%E4%BA%86/"/>
-    <id>http://www.simbleman.com/2019/03/12/好久没更新了/</id>
-    <published>2019-03-12T13:11:31.000Z</published>
-    <updated>2019-08-07T11:30:05.167Z</updated>
-    
-    <content type="html"><![CDATA[<font size="4"><br>    已经快有一个月没有更新了，有点惭愧。<br><br>    主要是从准备开学到正式开学，一直都在做一个关于微信小程序的小项目，以前完全没有这方面的学习经历和经验，所以就从web的前端和后端一直看到了微信小程序。这其中总感觉时间不够用，所以一直很赶时间，就没有来更新博客了，但事实也证明了时间是不够用的。虽然这个小项目可能不会很完美结束，但这一个月还是学到了不少的。接下来我会尽量缩短我更新博客的时间，将这个月的经历一一分享。<br><br><br><br><br><br></font>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;font size=&quot;4&quot;&gt;&lt;br&gt;    已经快有一个月没有更新了，有点惭愧。&lt;br&gt;&lt;br&gt;    主要是从准备开学到正式开学，一直都在做一个关于微信小程序的小项目，以前完全没有这方面的学习经历和经验，所以就从web的前端和后端一直看到了微信小程序。这其中总感觉时间不够用，
-      
-    
-    </summary>
-    
-      <category term="其它" scheme="http://www.simbleman.com/categories/%E5%85%B6%E5%AE%83/"/>
-    
     
   </entry>
   

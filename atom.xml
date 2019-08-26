@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-25T14:51:22.998Z</updated>
+  <updated>2019-08-26T15:07:25.179Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_19_杂谈（关于苹果产品）</title>
+    <link href="http://www.simbleman.com/2019/08/26/Blog-19-%E6%9D%82%E8%B0%88%EF%BC%88%E5%85%B3%E4%BA%8E%E8%8B%B9%E6%9E%9C%E4%BA%A7%E5%93%81%EF%BC%89/"/>
+    <id>http://www.simbleman.com/2019/08/26/Blog-19-杂谈（关于苹果产品）/</id>
+    <published>2019-08-26T15:06:06.000Z</published>
+    <updated>2019-08-26T15:07:25.179Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天暂停一天Flutter的介绍，主要是今天我将大部分时间都用在了苹果产品的研究上，从入手ipad，感觉我就中了苹果的毒，突然发现我之前对苹果的鄙夷是毫无道理可言的，因为苹果的生态是做的真的好，如果能配合多台苹果设备，简直就是学习和办公的神器。还有苹果的系统，比Android不知道流畅多少倍，Android手机就是各种流氓软件横行的世界。一个App恨不得它所有的权限都要，而且还是强制的，如果你不给它权限，它甚至不会给你运行，而ios上的软件就不这样了，所有的权限它都会询问你要不要授予，你是权限的唯一管理者，软件没有权利来强制你开启某一个权限，你甚至可以管理软件的核心权限，仅仅在软件开启的时候启用权限。嗯…之前对苹果的所有偏见都没有了，它贵自然有它贵的道理，但这不能成为蔑视苹果这家伟大公司的理由！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天暂停一天Flutter的介绍，主要是今天我将大部分时间都用在了苹果产品的研究上，从入手ipad，感觉我就中了苹果的毒，突然发现我之前对苹果的鄙夷是毫无道理可言的，因为苹果的生态是做的真的好，如果能配合多台苹果设备，简直就是学习和办公的神器。还有苹果的系统，比Androi
+      
+    
+    </summary>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+      <category term="杂谈" scheme="http://www.simbleman.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_18_flutter中基本路由和路由传值</title>
@@ -524,37 +549,6 @@
     
     
       <category term="json" scheme="http://www.simbleman.com/tags/json/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>队列的实现</title>
-    <link href="http://www.simbleman.com/2019/03/26/%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://www.simbleman.com/2019/03/26/队列的实现/</id>
-    <published>2019-03-26T05:47:43.000Z</published>
-    <updated>2019-08-07T11:36:17.060Z</updated>
-    
-    <content type="html"><![CDATA[<font size="4"><br>    队列也是一种特殊的线性表，它的特点是先进先出，所有的插入操作都在表的一端进行，而删除操作都在表的另一端进行，<br></font><h2 id="队列的指针实现"><a href="#队列的指针实现" class="headerlink" title="队列的指针实现"></a>队列的指针实现</h2><p>因为队列要在线性表的两段进行操作，为了方便使用，就不能像栈那样只有个节点型就好了，因此它的定义和栈会有不同。</p><h3 id="队列的定义和初始化"><a href="#队列的定义和初始化" class="headerlink" title="队列的定义和初始化"></a>队列的定义和初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">队列的节点定义</span><br><span class="line">struct node&#123;</span><br><span class="line">    node *next;</span><br><span class="line">    int element;</span><br><span class="line">&#125;;</span><br><span class="line">队列的定义</span><br><span class="line">struct QUEUE&#123;</span><br><span class="line">    node * front;//表头节点</span><br><span class="line">    node * rear;//指向最后一个元素的节点</span><br><span class="line">&#125;;</span><br><span class="line">初始化</span><br><span class="line">void init(QUEUE &amp;q)&#123;//初始化为空表，头指针和尾指针重合 </span><br><span class="line">    q.front=new node;</span><br><span class="line">    q.front-&gt;next=NULL;</span><br><span class="line">    q.rear=q.front;</span><br><span class="line">    cout&lt;&lt;&quot;初始化成功&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="插入操作（在队列的尾部进行）"><a href="#插入操作（在队列的尾部进行）" class="headerlink" title="插入操作（在队列的尾部进行）"></a>插入操作（在队列的尾部进行）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void enqueue(int x,QUEUE &amp;q)&#123;</span><br><span class="line">    q.rear-&gt;next=new node;</span><br><span class="line">    q.rear=q.rear-&gt;next;</span><br><span class="line">    q.rear-&gt;next=NULL;</span><br><span class="line">    q.rear-&gt;element=x;</span><br><span class="line">    cout&lt;&lt;&quot;插入队列成功&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="删除操作（在队列的头部进行）"><a href="#删除操作（在队列的头部进行）" class="headerlink" title="删除操作（在队列的头部进行）"></a>删除操作（在队列的头部进行）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void dequeue(QUEUE &amp;q)&#123;</span><br><span class="line">    node * temp;</span><br><span class="line">    if(q.rear==q.front)&#123;</span><br><span class="line">        cout&lt;&lt;&quot;错误，该队列为空！&quot;&lt;&lt;endl; </span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        temp=q.front-&gt;next;</span><br><span class="line">        q.front-&gt;next=temp-&gt;next;</span><br><span class="line">        delete temp; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="队列的数组实现（循环数组）"><a href="#队列的数组实现（循环数组）" class="headerlink" title="队列的数组实现（循环数组）"></a>队列的数组实现（循环数组）</h2><p>因为队列的特殊性，一般的数组难以满足完美地满足它的要求，所以这里用循环数组来实现它。</p><h3 id="队列的定义和初始化-1"><a href="#队列的定义和初始化-1" class="headerlink" title="队列的定义和初始化"></a>队列的定义和初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef struct&#123;</span><br><span class="line">    int front;</span><br><span class="line">    int rear;</span><br><span class="line">    int elements[maxlength];</span><br><span class="line">&#125;QUEUE; </span><br><span class="line"></span><br><span class="line">void init(QUEUE &amp;Q)&#123;//将队列置为空 </span><br><span class="line">    Q.front=0;</span><br><span class="line">    Q.rear=maxlength-1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注：为了防止循环队列队满和队空的状态相同，因此这里将rear比front滞后一个位置做为队空的状态，front为0，rear为maxlength-1，而把rear所指单元比front滞后两个位置做为队满的状态。</p><h3 id="循环数组很重要的addone函数"><a href="#循环数组很重要的addone函数" class="headerlink" title="循环数组很重要的addone函数"></a>循环数组很重要的addone函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">addone函数算是实现了循环数组循环的条件</span><br><span class="line">int addone(int i)&#123;</span><br><span class="line">    return ((i+1)%maxlength);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="插入操作（将rear往前移动一个位置（顺时针））"><a href="#插入操作（将rear往前移动一个位置（顺时针））" class="headerlink" title="插入操作（将rear往前移动一个位置（顺时针））"></a>插入操作（将rear往前移动一个位置（顺时针））</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void insert(QUEUE &amp;Q,int x)&#123;</span><br><span class="line">    if(addone(addone(Q.rear))==Q.front)&#123;</span><br><span class="line">        cout&lt;&lt;&quot;错误，该队列已满！&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        Q.rear=addone(Q.rear);</span><br><span class="line">        Q.elements[Q.rear]=x;</span><br><span class="line">        cout&lt;&lt;x&lt;&lt;&quot;插入队列成功！&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="删除操作-将front往前移动一个位置（顺时针）"><a href="#删除操作-将front往前移动一个位置（顺时针）" class="headerlink" title="删除操作(将front往前移动一个位置（顺时针）)"></a>删除操作(将front往前移动一个位置（顺时针）)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void deleteq(QUEUE &amp;q)&#123;</span><br><span class="line">    if(addone(q.rear)==q.front)&#123;</span><br><span class="line">        cout&lt;&lt;&quot;错误，该附列已空&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        q.front=addone(q.front);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;font size=&quot;4&quot;&gt;&lt;br&gt;    队列也是一种特殊的线性表，它的特点是先进先出，所有的插入操作都在表的一端进行，而删除操作都在表的另一端进行，&lt;br&gt;&lt;/font&gt;
-
-&lt;h2 id=&quot;队列的指针实现&quot;&gt;&lt;a href=&quot;#队列的指针实现&quot; class=&quot;headerl
-      
-    
-    </summary>
-    
-      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="数据结构" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="http://www.simbleman.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="队列" scheme="http://www.simbleman.com/tags/%E9%98%9F%E5%88%97/"/>
     
   </entry>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-26T15:07:25.179Z</updated>
+  <updated>2019-08-27T14:57:14.535Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_20_Flutter中命名路由的传值</title>
+    <link href="http://www.simbleman.com/2019/08/27/Blog-20-Flutter%E4%B8%AD%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1%E7%9A%84%E4%BC%A0%E5%80%BC/"/>
+    <id>http://www.simbleman.com/2019/08/27/Blog-20-Flutter中命名路由的传值/</id>
+    <published>2019-08-27T14:56:29.000Z</published>
+    <updated>2019-08-27T14:57:14.535Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天的主要内容是关于Flutter的命名路由跳转，命名路由跳转主要是配置的问题</p><h3 id="引入页面的文件"><a href="#引入页面的文件" class="headerlink" title="引入页面的文件"></a>引入页面的文件</h3><p>首先在main函数文件中引入想要跳转的页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &apos;tabs/Search.dart&apos;;</span><br></pre></td></tr></table></figure></p><h3 id="在main文件中配置全局route"><a href="#在main文件中配置全局route" class="headerlink" title="在main文件中配置全局route"></a>在main文件中配置全局route</h3><p>首先要定义一个全局变量的route变量，然后再实现对页面跳转的监听（在onGenerateRoute中）<br>其监听功能的实现是参照官网提供的实例而写成的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  // This widget is the root of your application.</span><br><span class="line">  final routes=&#123;</span><br><span class="line">        &apos;/form&apos;: (context)=&gt;FromPage(),</span><br><span class="line">        &apos;/search&apos;:(context,&#123;arguments&#125;)=&gt;SearchPage(arguments:arguments)</span><br><span class="line">      &#125;;//首先定义一个成员变量routes</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return MaterialApp(</span><br><span class="line">      </span><br><span class="line">      title: &apos;Flutter Demo1&apos;,</span><br><span class="line">      theme: ThemeData(</span><br><span class="line">        primarySwatch: Colors.blue,</span><br><span class="line">      ),</span><br><span class="line">      home: Tabs(),</span><br><span class="line">      //在materialApp中定义onGenerateRoute实现监听</span><br><span class="line">      onGenerateRoute: (RouteSettings settings)&#123;</span><br><span class="line">        final String name=settings.name;</span><br><span class="line">        final Function pageContentBuilder = this.routes[name];</span><br><span class="line">        if(pageContentBuilder!=null)&#123;</span><br><span class="line">          if(settings.arguments!=null)&#123;</span><br><span class="line">            final Route route=MaterialPageRoute(</span><br><span class="line">              builder: (context)=&gt;</span><br><span class="line">              pageContentBuilder(context,arguments:settings.arguments));</span><br><span class="line">              return route;</span><br><span class="line">          &#125;else&#123;</span><br><span class="line">            final Route route =MaterialPageRoute(</span><br><span class="line">              builder: (context)=&gt;</span><br><span class="line">                pageContentBuilder(context));</span><br><span class="line">                return route;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="在首页进行命名路由的跳转"><a href="#在首页进行命名路由的跳转" class="headerlink" title="在首页进行命名路由的跳转"></a>在首页进行命名路由的跳转</h3><p>同样在这里我们实现命名路由的跳转功能，并且完成值的传递<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Navigator.pushNamed(context,&apos;/search&apos;,arguments: &#123;</span><br><span class="line">          &quot;id&quot;:123</span><br><span class="line">        &#125;);</span><br><span class="line">//这里实现了id的传值</span><br></pre></td></tr></table></figure></p><h3 id="在search页面接收传入的值并打印"><a href="#在search页面接收传入的值并打印" class="headerlink" title="在search页面接收传入的值并打印"></a>在search页面接收传入的值并打印</h3><p>首先要定义传值参数arguments之后再在构造函数中完成值的接收<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class SearchPage extends StatelessWidget &#123;</span><br><span class="line">  final arguments;    </span><br><span class="line">  SearchPage(&#123;this.arguments&#125;);//这是命名路由传值中设计的arguments</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(appBar: AppBar(title: Text(&quot;搜索页面&quot;),),</span><br><span class="line">    body: Text(&quot;这是一个搜索页面的内容区域$&#123;arguments !=null ? arguments[&apos;id&apos;]: &apos;0&apos;&#125;&quot;),);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天的主要内容是关于Flutter的命名路由跳转，命名路由跳转主要是配置的问题&lt;/p&gt;
+&lt;h3 id=&quot;引入页面的文件&quot;&gt;&lt;a href=&quot;#引入页面的文件&quot; class=&quot;headerlink&quot; title=&quot;引入页面的文件&quot;&gt;&lt;/a&gt;引入页面的文件&lt;/h3&gt;&lt;p&gt;首先在
+      
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="flutter" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/flutter/"/>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_19_杂谈（关于苹果产品）</title>
@@ -521,34 +549,6 @@
     
     
       <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>非常艰难的填坑之路</title>
-    <link href="http://www.simbleman.com/2019/03/31/%E9%9D%9E%E5%B8%B8%E8%89%B0%E9%9A%BE%E7%9A%84%E5%A1%AB%E5%9D%91%E4%B9%8B%E8%B7%AF/"/>
-    <id>http://www.simbleman.com/2019/03/31/非常艰难的填坑之路/</id>
-    <published>2019-03-31T08:28:45.000Z</published>
-    <updated>2019-08-07T11:36:48.352Z</updated>
-    
-    <content type="html"><![CDATA[<p><font size="4"><br>    除了吃饭睡觉，这一天都在填一个其实只要用3行代码解决的坑，这中间伴随着郁闷和无尽的郁闷，甚至到达了怀疑自我的境界。。不过还好就在刚刚成功解决了。现在怀着非常激动的心情来叙说这个艰难的过程的结果。<br></font></p><h3 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h3><p>这个坑是有关JSON数据处理的，本来一点不了解这个数据格式的，上次在做微信小程序的时候偶然了解到了它，在做这个数据处理前，我以为会很简单。可是正是因为我的忽视，一开始浪费了很多时间在做无谓的工作。</p><h3 id="关于json的微信小程序处理"><a href="#关于json的微信小程序处理" class="headerlink" title="关于json的微信小程序处理"></a>关于json的微信小程序处理</h3><p>因为要选择一个客户端测试，所以就借用了微信小程序，要在java服务器中处理微信wx.request中的json数据，在微信小程序的js里面一定要<font color="red">先处理</font>,不然等到它把数据发送到服务器端，会发现输出的一直是[object][object]一直看不到具体的对象的值，这时候叫天不应叫地不灵，无论在服务端怎么处理，都会发现是无用功，超级郁闷。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">具体处理方法：</span><br><span class="line">json.stringify()方法是将一个JavaScript值(对象或者数组)转换为一个 JSON字符串</span><br><span class="line">json.parse() 方法将数据转换为 JavaScript 对象( 将字符串转成json对象。 )</span><br><span class="line"></span><br><span class="line">js中的数据</span><br><span class="line">data: [&#123; &quot;coorx&quot;: 12, &quot;coory&quot;: 13 &#125;,</span><br><span class="line">    &#123; &quot;coorx&quot;: 123, &quot;coory&quot;: 133 &#125;,</span><br><span class="line">    &#123; &quot;coorx&quot;: 123, &quot;coory&quot;: 133 &#125;</span><br><span class="line">    ]</span><br><span class="line">var arrJosn = JSON.stringify(this.data.data);</span><br><span class="line">传输的数据：</span><br><span class="line">data: &#123;</span><br><span class="line">        &quot;data&quot;: arrJosn</span><br><span class="line">      &#125;,</span><br><span class="line">只有这样data传到服务端才能正常显示，真坑啊。</span><br></pre></td></tr></table></figure></p><h3 id="服务端的处理"><a href="#服务端的处理" class="headerlink" title="服务端的处理"></a>服务端的处理</h3><p>在服务端发现是小程序中的json未处理前，在服务端我几乎把所有json处理的方式都试了一遍，但是没有效果。。但是试完了之后发现自己对json这个数据类型处理的思路也很清晰了。<br>我用的是阿里巴巴的fastjson库。<br>不过仔细想想我还是没有明白那个困惑我很久的情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    private static final String  JSON_ARRAY_STR = &quot;[&#123;\&quot;coory\&quot;:13,\&quot;coorx\&quot;:12&#125;,&#123;\&quot;coory\&quot;:13,\&quot;coorx\&quot;:12&#125;,&#123;\&quot;coory\&quot;:13,\&quot;coorx\&quot;:12&#125;]&quot;;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        JSONArray jsonArray = JSON.parseArray(JSON_ARRAY_STR);</span><br><span class="line">        System.out.println(jsonArray);</span><br><span class="line">&#125;</span><br><span class="line">以上代码运行一点问题都没有</span><br><span class="line">但是如果将JSON_ARRAY_STR变成另一种方法得到的，输出就会一直报错。</span><br><span class="line">    JSONArray jsonArray = new JSONArray();</span><br><span class="line">    for (int i = 0; i &lt; 3; i++) &#123;</span><br><span class="line">            JSONObject jsonObject = new JSONObject();</span><br><span class="line">            jsonObject.put(&quot;coorx&quot;, 12);</span><br><span class="line">            jsonObject.put(&quot;coory&quot;, 13);</span><br><span class="line">            jsonArray.add(jsonObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    String str=jsonArray.toJSONString();</span><br><span class="line">    String JSON_ARRAY_STR=JSON.toJSONString(str);</span><br><span class="line">    JSONArray jsa=JSON.parseArray(JSON_ARRAY_STR);</span><br><span class="line">    执行到最后一句一直报Exception in thread &quot;main&quot; com.alibaba.fastjson.JSONException: syntax error, expect [, actual string, pos 0, fieldName null</span><br><span class="line">    但是你输出str2跟上面一种方法的JSON_ARRAY_STR一模一样。</span><br><span class="line">    无解啊</span><br></pre></td></tr></table></figure></p><p>最后成功解决的原因就是不用把微信小程序处理过的数据再toJSONString。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String coor=request.getParameter(&quot;data&quot;);</span><br><span class="line">JSONArray jsa=JSONArray.parseArray(coor);</span><br><span class="line">这里直接parseArray于是就成功了转换成了json数组了。</span><br></pre></td></tr></table></figure></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这个坑的主要问题就是上面这些，虽然有些时候很多坑填填是必要的，但是这次的填坑之旅花费了大量的时间，而且非常艰难，这是我对这个问题的简单化造成的，一开始并没有想很系统的去了解和解决这个问题，总是想着网上copy其他人的代码节省时间，现在才发现自己去了解其中的原因和道理才是真正省时间的方法。嗯..还有很多问题等着去解决呢，还是不废话了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;font size=&quot;4&quot;&gt;&lt;br&gt;    除了吃饭睡觉，这一天都在填一个其实只要用3行代码解决的坑，这中间伴随着郁闷和无尽的郁闷，甚至到达了怀疑自我的境界。。不过还好就在刚刚成功解决了。现在怀着非常激动的心情来叙说这个艰难的过程的结果。&lt;br&gt;&lt;/font&gt;&lt;/p&gt;
-&lt;
-      
-    
-    </summary>
-    
-      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="微信小程序" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-      <category term="json" scheme="http://www.simbleman.com/tags/json/"/>
     
   </entry>
   

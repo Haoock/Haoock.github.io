@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.simbleman.com/"/>
-  <updated>2019-08-28T14:00:19.890Z</updated>
+  <updated>2019-08-30T15:16:11.056Z</updated>
   <id>http://www.simbleman.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Blog_22_杂谈（说明）</title>
+    <link href="http://www.simbleman.com/2019/08/30/Blog-22-%E6%9D%82%E8%B0%88%EF%BC%88%E8%AF%B4%E6%98%8E%EF%BC%89/"/>
+    <id>http://www.simbleman.com/2019/08/30/Blog-22-杂谈（说明）/</id>
+    <published>2019-08-30T15:14:17.000Z</published>
+    <updated>2019-08-30T15:16:11.056Z</updated>
+    
+    <content type="html"><![CDATA[<p>说明一下，因为最近开学了，所以这两天都在准备开学的事项，今天终于来到了学校，也就没有多少时间来写Blog了，所以我可能更新的频率为两天一更，有时也会尽量一天一更。这要取决于我当天的时间和状态，不过以后会尽量改变一下我Blog的风格，我争取能写出质量更高的Blog，而不是像现在这样风格的Blog。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;说明一下，因为最近开学了，所以这两天都在准备开学的事项，今天终于来到了学校，也就没有多少时间来写Blog了，所以我可能更新的频率为两天一更，有时也会尽量一天一更。这要取决于我当天的时间和状态，不过以后会尽量改变一下我Blog的风格，我争取能写出质量更高的Blog，而不是像现
+      
+    
+    </summary>
+    
+    
+      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
+    
+      <category term="杂谈" scheme="http://www.simbleman.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Blog_21_杂谈（可以忽略）</title>
@@ -515,32 +540,6 @@
       
         &lt;p&gt;&lt;code&gt;工欲善其事必先利其器&lt;/code&gt;&lt;br&gt;github被戏称为是世界上最大的同性社交平台，这肯定是有它自己独特的魅力。我也很早就被他的这种魅力所吸引，但是终究只是沉醉于它那富丽堂皇的表面，而迟迟没有去欣赏它真实的内涵。&lt;/p&gt;
 &lt;h3 id=&quot;git和githu
-      
-    
-    </summary>
-    
-      <category term="学习" scheme="http://www.simbleman.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="DailyBlog" scheme="http://www.simbleman.com/tags/DailyBlog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Blog_01:关于Markdown语法</title>
-    <link href="http://www.simbleman.com/2019/08/08/Blog-01-%E5%85%B3%E4%BA%8EMarkdown%E8%AF%AD%E6%B3%95/"/>
-    <id>http://www.simbleman.com/2019/08/08/Blog-01-关于Markdown语法/</id>
-    <published>2019-08-08T12:00:00.000Z</published>
-    <updated>2019-08-08T12:07:54.326Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>工欲善其事必先利其器</code></pre><h3 id="1-使用Markdown语法的原因"><a href="#1-使用Markdown语法的原因" class="headerlink" title="1.使用Markdown语法的原因"></a>1.使用Markdown语法的原因</h3><p>&emsp;&emsp;从我开始写blog的第一天就学习了这个Markdown的语法，要说使用它的原因，我现在还真的说不出到底为什么，不过用markdown语法写一段时间文章，相信我你会喜欢上它的。在Markdown设计之初就是致力于是阅读和创作文档变得更容易，在使用的过程中的确有一种效率更高的感觉，因为你再也不需要用鼠标和按钮进行排版了。</p><hr><h3 id="2-Markdown语法"><a href="#2-Markdown语法" class="headerlink" title="2.Markdown语法"></a>2.Markdown语法</h3><p>&emsp;&emsp;最基本的用法在这里我就不具体介绍了，当你在搜索引擎搜索之后会发现教程实在是很多。甚至有教程在宣扬5分钟之内就可以学会，的确学习之后发现Markdown相比于html语法还是比较简单的。但是今天当我重新了解了一遍Markdown之后，我发现有几个语法一直没有注意到,所以就着重记录几个。</p><h4 id="是关于有序列表数字的问题"><a href="#是关于有序列表数字的问题" class="headerlink" title="是关于有序列表数字的问题"></a>是关于有序列表数字的问题</h4><p>&emsp;&emsp;有序列表是通过数字加半角的句号完成的，如”1.”表示第一个。<br>但是在使用的过程中发现数字是可以无序的，也就是说当你1.以后后一行应该用2.但是你用了3.或者任何一个数字显示出来依旧是2.<br>可以看一下接下来的两个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 这是第一行      </span><br><span class="line">6. 这是第二行                     </span><br><span class="line">7. 这是第三行</span><br></pre></td></tr></table></figure></p><p>显示出来：</p><ol><li>这是第一行      </li><li>这是第二行                     </li><li>这是第三行</li></ol><p>所以下次只要注意列表的第一个数字就足够了</p><h4 id="关于转义字符的问题"><a href="#关于转义字符的问题" class="headerlink" title="关于转义字符的问题"></a>关于转义字符的问题</h4><p>&emsp;&emsp;首先说明在Markdown中转义字符是“\”（反斜杠）它可以完成特殊字符的一般化比如\<em>这里的字体没有受到\</em>的影响\*，如果去掉两个转义字符就变成了：<em>这里的字体没有受到\</em>的影响*，显然已经受到了影响（变成粗体了）。</p><h4 id="关于内联元素的链接问题"><a href="#关于内联元素的链接问题" class="headerlink" title="关于内联元素的链接问题"></a>关于内联元素的链接问题</h4><p>&emsp;&emsp;首先看这一段话：“你可以在<a href="https://www.baidu.com/" title="点击百度一下！" target="_blank" rel="noopener">百度</a>上进行搜索，也可以在<a href="https://www.google.com/" title="点击进行谷歌搜索" target="_blank" rel="noopener">谷歌</a>上进行搜索我的blog”<br>以下是上面那句话的源代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">“你可以在[百度][]上进行搜索，也可以在[谷歌][]上进行搜索我的blog”</span><br><span class="line"></span><br><span class="line">[百度]: https://www.baidu.com/   &quot;点击百度一下！&quot;</span><br><span class="line">[谷歌]: https://www.google.com/  &quot;点击进行谷歌搜索&quot;</span><br></pre></td></tr></table></figure></p><p>还有第二种实现方法贴上源代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">“你可以在[百度][1]上进行搜索，也可以在[谷歌][2]上进行搜索我的blog”</span><br><span class="line"></span><br><span class="line">[1]: https://www.baidu.com/   &quot;点击百度一下！&quot;</span><br><span class="line">[2]: https://www.google.com/  &quot;点击进行谷歌搜索&quot;</span><br></pre></td></tr></table></figure></p><p>以上的效果是一样的但是原理不同，第二种个人感觉有点类似html中的id属性的实现方法。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;工欲善其事必先利其器
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;1-使用Markdown语法的原因&quot;&gt;&lt;a href=&quot;#1-使用Markdown语法的原因&quot; class=&quot;headerlink&quot; title=&quot;1.使用Markdown语法的原因&quot;&gt;&lt;/a&gt;
       
     
     </summary>
